@@ -21,7 +21,11 @@ public class DroolConfig {
 
 	private KieFileSystem getKieFileSystem() throws IOException {
 		KieFileSystem kieFileSystem = kieServices.newKieFileSystem();
-		kieFileSystem.write(ResourceFactory.newClassPathResource("offer.drl"));
+		
+		//in this line we creted ruls in drl file can understand devloper easily
+		//kieFileSystem.write(ResourceFactory.newClassPathResource("offer.drl"));
+		//in this we reading rules from xls files ,wihich can be modified by non-tech guy as well
+		kieFileSystem.write(ResourceFactory.newClassPathResource("offer.xls"));
 		return kieFileSystem;
 
 	}
