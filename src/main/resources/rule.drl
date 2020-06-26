@@ -1,0 +1,19 @@
+package KieRule;
+import com.drools.model.Product
+
+
+rule "Offer for Platinum"
+  when
+   	 productObject:Product(type == "Platinum");
+   	 
+   then
+     productObject.setDiscount(15);
+   end;
+   
+ rule "Offer for Gold"
+ 	when
+ 	productObject:Product(type == "gold");
+ 	then
+ 	productObject.setDiscount(10);
+ 	end;
+ 	

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.drools.model.Order;
+import com.drools.model.Product;
 
 @RestController
 public class MegaOfferContoller {
@@ -21,6 +22,13 @@ public class MegaOfferContoller {
 		session.fireAllRules();
 
 		return order;
+	}
+
+	@PostMapping(value = "/discount")
+	public Product checkDiscount(@RequestBody Product product) {
+		session.insert(product);
+		session.fireAllRules();
+		return product;
 	}
 
 }
